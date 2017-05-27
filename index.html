@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="./speech-input/speech-input.css">
+  <link rel="stylesheet" href="./estilo.css">
+</head>
+
+<body>
+  <header class="container">
+    <h1>Prova de Conceito</h1>
+    <div id="avisos">
+
+    </div>
+  </header>
+
+  <div id="myTab" class="container">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="tab active">
+        <a id="tab1" href="#enviar-evento" role="tab" aria-controls="enviar-evento" aria-selected="true"
+          data-toggle="tab" tabindex="0">Enviar evento</a>
+      </li>
+      <li class="tab">
+        <a id="tab2" href="#ler-eventos" role="tab" aria-controls="ler-eventos" aria-selected="false"
+          data-toggle="tab" tabindex="-1">Ler evento</a>
+      </li>
+      <li class="tab">
+        <a id="tab3" href="#configuracao" role="tab" aria-controls="configuracao" aria-selected="false"
+          data-toggle="tab" tabindex="-1">Configuracao</a>
+      </li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content" aria-live="polite">
+      <div class="tab-pane fade in active" id="enviar-evento" role="tabpanel" aria-labelledby="tab1"
+        aria-hidden="false" tabindex="0">
+
+        <h2>Adicionar novo evento</h2>
+
+        <form id="form-enviar">
+          <input type="hidden" name="pagina" id="enviar-pagina-campo" value="">
+          <input type="hidden" name="id" value="" disabled>
+          <input type="hidden" name="created" value="" disabled>
+          <input type="hidden" name="updated" value="" disabled>
+          <input type="hidden" name="type" value="generic">
+          <input type="hidden" name="medatada" value="">
+          <p>
+            <label for="annotations">Instrução</label> <br>
+            <input id="annotations" name="annotations" type="text" class="speech-input form-control"
+              required>
+          </p>
+          <input type="hidden" name="param_datetime_1" value="">
+          <input type="hidden" name="param_datetime_2" value="">
+          <input type="hidden" name="param_datetime_3" value="">
+          <input type="hidden" name="param_integer_1" value="">
+          <input type="hidden" name="param_integer_2" value="">
+          <input type="hidden" name="param_integer_3" value="">
+          <input type="hidden" name="param_string_1" value="">
+          <input type="hidden" name="param_string_2" value="">
+          <input type="hidden" name="param_string_3" value="">
+          <hr />
+
+          <p id="enviar-planilha-teste" class="alert alert-warning" style="float: right; display: none"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+            <strong>Usando
+            planilha de teste</strong>: dados fornecidos aqui <a target="_blank"
+              href="https://docs.google.com/spreadsheets/d/1QPmutg1CHlXCLe_gpIb0l9fK-BurGUMn4UvGOvHZS60/edit?usp=sharing">serão acessíveis por outras pessoas nesta planilha</a></p>
+          <p id="enviar-planilha-prod" class="alert alert-info" style="float: right; display: none"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <strong>Usando planilha customizada</strong></p>
+
+          <button type='submit' class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Submeter</button>
+        </form>
+
+      </div>
+      <div class="tab-pane fade" id="ler-eventos" role="tabpanel" aria-labelledby="tab2"
+        aria-hidden="true" tabindex="0">
+        <h2>Ler informações</h2>
+        <p>No momento esta funcionalidade não está implementada</p>
+      </div>
+      <div class="tab-pane fade" id="configuracao" role="tabpanel" aria-labelledby="tab3"
+        aria-hidden="true" tabindex="0">
+        <h2>Configuração </h2>
+        <button id="configuracao-setar-teste" class="btn btn-primary"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Usar planilha de dados de teste</button>
+
+        <form id="form-configuracao">
+          <p>
+            <label for="planilha-url">Planilha URL (não obrigatório)</label>
+            <em>Usado apenas para permitir link rápido na interface</em> <br>
+            <input id="planilha-url" name="planilha-url" type="text" class="form-control" value="">
+          </p>
+          <p>
+            <label for="webapp-url">WebApp URL</label> <br>
+            <input id="webapp-url" name="webapp-url" type="text" class="form-control" value=""
+              required>
+          </p>
+          <p>
+            <label for="pagina">Página da planilha a ser salvo</label> <br>
+            <input id="configuracao-pagina-campo" name="pagina" type="text" value="eventos" required>
+          </p>
+
+          <button id="configuracao-salvar" class="btn btn-success">Lembrar dados acima neste navegador</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src='./speech-input/speech-input.js'></script>
+  <script src='script-interface.js'></script>
+
+</html>
